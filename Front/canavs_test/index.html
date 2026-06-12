@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    </style>
+</head>
+<body>
+    <canvas id="Sound_fx_level" width="250px" height="25px"></canvas>
+    <br/>
+    <canvas id="music" width="250px" height="25px"></canvas>
+    <script>
+
+        function createPRNG(seed) {
+                var state = seed >>> 0; // force uint32
+
+                return function () {
+                    state = (1664525 * state + 1013904223) >>> 0;
+                    return state / 4294967296; // normalize to [0,1)
+                };
+            }
+
+            // usage
+        
+    async function main(){
+  
+    const img = new Image()
+    await new Promise((resolve, reject) => {
+            img.onload = () => resolve(img);
+            img.onerror = reject
+            img.src = img.src = "pencil_texture.png";
+        });
+
+   
+
+
+    function render(ctx,vol){
+    var rand = createPRNG(123);
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    var s = 0.6;
+    var pos = { x: 3, y: 3 };
+    function draw_line(m,l){
+            q = m;
+            for (let i=0; i<l; i++, pos[q] += s) {
+            const angle = rand() * Math.PI * 2; // random rotation
+
+            ctx.save();
+
+            // move to stamp position
+            ctx.translate(pos.x, pos.y);
+
+            // rotate
+            ctx.rotate(angle);
+
+            // draw centered
+            ctx.drawImage(img, -3, -3, 6, 6);
+
+            ctx.restore();
+        }
+    }
+    draw_line('x',406);
+    draw_line('y', 31);
+    s = -0.6;
+    draw_line('x', 406);
+    draw_line('y', 31);
+    ctx.beginPath();
+    ctx.fillStyle="#262626";
+    ctx.fillRect(3,3,3+vol*241,19);
+    pos['x'] = 6 + vol * 241;
+    s = 0.6;
+    let cnt = parseInt(rand() * 20);
+    for(let i=0; i< cnt; i++);
+    draw_line('y', 31);
+}
+
+
+
+var vol = 0.5;
+var vol2 = 0.8
+
+const canvas = document.getElementById("Sound_fx_level");
+const ctx = canvas.getContext("2d");
+ctx.imageSmoothingEnabled = false;
+
+const canvas1 = document.getElementById("music");
+const ctx1 = canvas1.getContext("2d");
+ctx1.imageSmoothingEnabled = false;
+
+
+
+
+
+
+let dragging = false;
+let rect;
+
+canvas.addEventListener("mousedown", (e) => {
+    dragging = true;
+    rect = canvas.getBoundingClientRect();
+});
+
+canvas.addEventListener("mousemove", (e) => {
+    if (!dragging) return;
+
+    const x = e.clientX - rect.left - 6;
+    vol = (x / (rect.width-14));
+
+    // clamp
+    if (vol < 0) vol = 0;
+    else if (vol > 1) vol = 1;
+    render(ctx,vol);
+});
+
+window.addEventListener("mouseup", () => dragging = false);
+
+canvas1.addEventListener("mousedown", (e) => {
+    dragging = true;
+    rect = canvas1.getBoundingClientRect();
+});
+
+canvas1.addEventListener("mousemove", (e) => {
+    if (!dragging) return;
+
+    const x = e.clientX - rect.left - 6;
+    vol2 = (x / (rect.width - 14));
+
+    // clamp
+    if (vol2 < 0) vol2 = 0;
+    else if (vol2 > 1) vol2 = 1;
+    render(ctx1, vol2);
+});
+
+window.addEventListener("mouseup", () => dragging = false);
+
+render(ctx,vol);
+render(ctx1,vol2);
+}
+
+main();
+
+    </script>
+</body>
+</html>

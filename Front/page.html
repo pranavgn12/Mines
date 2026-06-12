@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>PaperMines</title>
+    <link rel="icon" type="image/x-icon" href="../favicon.png">
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+</head>
+
+<body style="overflow: hidden;">
+    
+    <div id="whole"></div>
+    <div id="screen">
+        <div id="menu">
+            <div id="click"
+                style="z-index:99999; width: 100vw; height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;">
+                <img src='click.png' width="150px" height="150px">
+                <h1>Click anywhere to start</h1>
+            </div>
+            <div id="cont_title">
+                <div id="papermines"></div>
+                <div id="space_around_title"></div>
+            </div>
+            <div id="buttons">
+                <div id="space_around_buttons"></div>
+                <div id="play"></div>
+                <div id="highScores"></div>
+            </div>
+            <div id="options">
+                <div id='help' class="op">
+                    <div class="hold">
+                        <div class="circle"></div>
+                    </div>
+                </div>
+                <div id="settings" class="op">
+                    <div class="hold">
+                        <div class="circle"></div>
+                    </div>
+                </div>
+                <div id="info" class="op">
+                    <div class="hold">
+                        <div class="circle"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="bg_cont">
+            <div id="bggrid" class="bg_ele"></div>
+            <div id="bgmine" class="bg_ele"></div>
+            <div id="bg1" class="bg_ele"></div>
+            <div id="bg2" class="bg_ele"></div>
+            <div id="bg5" class="bg_ele"></div>
+            <div id="bg6" class="bg_ele"></div>
+            <div id="bg8" class="bg_ele"></div>
+            <div id="bgbox" class="bg_ele"></div>
+            <div id="bgflag" class="bg_ele"></div>
+        </div>
+    </div>
+    <div id="black_cover"></div>
+    <div id="sticky_paper_container">
+        <div id="sticky_paper">
+            <div id="top">
+                <div id="pin"></div>
+                <div id="set_x"></div>
+            </div>
+            <div id="settings_menu">
+                <div class="container">
+                    <div class="title"> Settings </div>
+                    <div id='Sound_Fx'>
+                        <div class="left">Sound Fx </div>
+                        <div class="right">
+                            <div class="blk">
+                                <div class="btn">-</div> <canvas width="250px" height="50px"
+                                    id="Sound_fx_level"></canvas>
+                                <div class="btn">+</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id='Music'>
+                        <div class="left"> Music </div>
+                        <div class="right">
+                            <div class="blk">
+                                <div class="btn">-</div><canvas width="250px" height="50px" id="Music_vol"> </canvas>
+                                <div class="btn">+</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id='lpf'>
+                        <div class="left">Long press to flag</div>
+                        <div class="right">
+                            <div class="sw">
+                                <div class="bc"></div>
+                                <div class="sw-on"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="hdf">
+                        <div class="left">Hold delay (ms)</div>
+                        <div class="right">
+                            <div class="btn">-</div>
+                            <input type="text" name="hdf" pattern="\d*" maxlength="3" id="hdfi">
+                            <div class="btn">+</div>
+                        </div>
+                    </div>
+                    <div id="dtf">
+                        <div class="left">Double tap to flag</div>
+                        <div class="right">
+                            <div class="sw" id='dpf'>
+                                <div class='sw-on'></div>
+                                <div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="tutorial">
+                <div class="title">Tutorial</div>
+                <div id="slide_show">
+                    <div id="left_arrow">
+                        <div id="lai"></div>
+                    </div>
+                    <div id="slide_container">
+                        <div id="slides">
+                            <div class="is"></div>
+                            <div class="is"></div>
+                            <div class="is"></div>
+                            <div class="is"></div>
+                            <div class="is"></div>
+                            <div class="is"></div>
+                        </div>
+                    </div>
+                    <div id="right_arrow">
+                        <div id="rai"></div>
+                    </div>
+                </div>
+                <div id="dots">
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                </div>
+            </div>
+            <div id="info_con">
+                <div class="title">Info</div>
+                <div id="credits">
+                Created by: Nova Interactive<br>
+                Programming: DevCore Team<br>
+                Level Design: ShadowMap Studios<br>
+                UI/UX Design: CleanFrame Labs<br>
+                Powered by: Custom Engine X<br>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

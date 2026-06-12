@@ -1,0 +1,122 @@
+body {
+    cursor: url("../cursor.svg"), default;
+    background-color: #F5F5F5;
+    display: grid;
+    height: 100vh;
+    margin: 0;
+    place-items: center;
+    overflow: hidden;
+}
+
+canvas {
+    border: 0px solid black;
+    max-width: inherit;
+    width: inherit;
+    aspect-ratio: 8/9;
+}
+
+.btn {
+    /* background-color: burlywood; */
+    background-repeat: no-repeat;
+}
+
+#btn1 {
+    background-image: url("pause.svg");
+    background-size: contain;
+}
+
+#btn2 {
+    background-image: url("restart.svg");
+    background-size: contain;
+}
+
+#btn3 {
+    background-image: url("help.svg");
+    background-size: contain;
+}
+
+#btn4 {
+    background-image: url("sound.svg");
+    background-size: contain;
+}
+
+#btn5 {
+    background-image: url("high_scores.svg");
+    background-size: contain;
+}
+
+#buttons {
+    width: inherit;
+    max-height: 1000px;
+    max-width: inherit;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#title {
+    font-family: "Volkhov", serif;
+    font-weight: 700;
+    font-style: normal;
+    color: #3C3C3C;
+
+}
+
+#container {
+    max-width: 800px;
+    width: 90vw;
+    aspect-ratio: 8/9;
+    display: flex;
+}
+
+@media (orientation: portrait) {
+    .btn {
+        width: 60px;
+        height: 60px;
+    }
+
+    #buttons {
+        flex-direction: row;
+    }
+
+    #container {
+        flex-direction: column;
+    }
+
+    #title {
+        padding: 20px;
+        font-size: 50px;
+    }
+
+    canvas {
+        margin-top: 30px;
+    }
+}
+
+@media (orientation: landscape) {
+    .btn {
+        width: 80px;
+        height: 80px;
+    }
+
+    #buttons {
+        margin-top: 60px;
+        margin-bottom: 60px;
+        position: relative;
+        right: 80px;
+        flex-direction: column;
+    }
+
+    #container {
+        position: relative;
+        right: 60px;
+        flex-direction: row;
+    }
+
+    #title {
+        font-size: 80px;
+        padding: 0px;
+        margin-bottom: -50px;
+    }
+}
